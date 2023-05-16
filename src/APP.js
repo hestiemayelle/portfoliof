@@ -11,19 +11,12 @@ import Footer from './components/footer/Footer'
 function APP(){
     return(
         <>
-<Header/>
-<Navbar/>
-<About/>
-<Experience/>
-<Services/>
-<Portfolio/>
-<Testimonial/>
-<Contact/>
-<Footer/>
+            <Header/>
+            <Contact/>
         </>
-    );
+    )
 
-    }
+}
     export default APP;
 
 
