@@ -12,7 +12,18 @@ function APP(){
     return(
         <>
             <Header/>
+            <Navbar/>
+            <About/>
+            <Experience/>
+            <Services/>
+            <Portfolio/>
             <Contact/>
+            <Footer/>
+            
+            
+
+
+
         </>
     )
 
