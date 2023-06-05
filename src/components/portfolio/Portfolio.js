@@ -8,7 +8,7 @@ import img6 from "../../assets/namjoon.jpg";
 import img7 from "../../assets/jk.jpg";
 import img8 from "../../assets/hester.jpg";
 import img9 from "../../assets/coffe.jpg";
-import ListPortfolio from "./listPortfolio";
+import ListPortfolio from "./listportfolio";
 
 export const Portfolio = () => {
   const portfolioContent = [
