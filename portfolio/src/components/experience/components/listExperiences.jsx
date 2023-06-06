@@ -6,28 +6,28 @@ const ListExperiences = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    getExperiences();
+    axios.get(
+      "https://hestie-portfolio-backend.onrender.com/experiences"
+    ).then((response)=>{
+      setData(response.data);
+    }).catch((err)=>{
+      console.log("Experience error: ", err)
+    });
+    
   }, []);
-
-  const getExperiences = async () => {
-    const response = await axios.get(
-      "http://localhost:5000/api/experience/experiences"
-    );
-    setData(response.data.experience);
-  };
-  return data.map((d) => {
+  return data.map((skills) => {
     return (
-      <div key={d._id} className="experience__backend">
-        <h3>{d.title}</h3>
-        <h4 className="experience_description">{d.description}</h4>
+      <div key={skills._id} className="experience__backend">
+        <h3>{skills.name}</h3>
+        {/* <h4 className="experience_description">{d.description}</h4> */}
         <div className="experience__content">
-          {d.skills.map((s) => {
+          {skills.experience.map((skill) => {
             return (
-              <article key={s._id} className="experience__details">
+              <article key={skill._id} className="experience__details">
                 <BsPatchCheckFill className="experience__details__icon" />
                 <div className="title__level">
-                  <h4>{s.name}</h4>
-                <small className="text-light">{s.level}</small>
+                  <h4>{skill.skillName}</h4>
+                <small className="text-light">{skill.skillLevel}</small>
                 </div>
               </article>
             );

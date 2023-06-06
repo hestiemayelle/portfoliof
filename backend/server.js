@@ -5,7 +5,8 @@ const bodyparser = require("body-parser");
 const cors = require("cors");
 const projectRoutes = require("./routes/projectRoutes");
 const experienceRoutes = require("./routes/experienceRoutes");
-const testimonialRoutes = require("./routes/testimonialRoutes")
+const testimonialRoutes = require("./routes/testimonialRoutes");
+const serviceRoutes = require("./routes/serviceRoutes");
 
 const app = express();
 
@@ -33,3 +34,4 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use("/projects", projectRoutes);
 app.use("/testimonials", testimonialRoutes);
 app.use("/experiences", experienceRoutes)
+app.use("/services", serviceRoutes);

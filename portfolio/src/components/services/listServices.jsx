@@ -6,26 +6,35 @@ const ListServices = () => {
     const [data, setData] = useState([])
 
     useEffect(() =>{
-        getServices()
+      axios.get(
+        "https://hestie-portfolio-backend.onrender.com/services"
+      ).then((response)=>{
+        setData(response.data);
+      }).catch((err)=>{
+        console.log("Service error: ", err)
+      });
     }, [])
 
-    const getServices = async () => {
-        const response = await axios.get('http://localhost:5000/api/service/services')
-        setData(response.data.services)
-    }
-    console.log(data)
-    return data.map((d)=>{
+  
+    return data.map((service)=>{
         return(
 
-        <article className='service' key={d._id}>
+        <article className='service' key={service._id}>
           <div className="service__head">
-            <h3>{d.title}</h3>
+            <h3>{service.title}</h3>
           </div>
           <ul className='service__list'>
-            <li>
-              <BiCheck className='service__list__icon'/> 
-              <p> {d.description} </p>
-            </li>
+            {
+              service.description.map((desc, index)=>{
+                return (
+                  <li key={index}>
+                    <BiCheck className='service__list__icon'/> 
+                    <p> {desc} </p>
+                  </li>
+                )
+              })
+            }
+            
           </ul>
         </article>
 
