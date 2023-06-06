@@ -3,14 +3,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 const cors = require("cors");
+const projectRoutes = require("./routes/projectRoutes");
+const experienceRoutes = require("./routes/experienceRoutes");
+const testimonialRoutes = require("./routes/testimonialRoutes")
 
 const app = express();
 
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT;
+const DB_URI = process.env.MONGO_URI;
 
 console.log("Connecting to MongoDB Atlas...");
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(DB_URI)
   .then(() => {
     console.log("Connected to MongoDB Atlas!");
     app.listen(PORT, () => {
@@ -26,11 +30,6 @@ app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
 // Routes
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.use("/projects", projectRoutes);
+app.use("/testimonials", testimonialRoutes);
+app.use("/experiences", experienceRoutes)
