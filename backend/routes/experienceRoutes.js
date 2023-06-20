@@ -13,7 +13,7 @@ router.get("/:id", getSingleExperience);
 router.patch("/:id", updateExperience);
 
 // Create a new Experience 
-router.post("/:id", createExperience);
+router.post("/", createExperience);
 
 // delete a Experience 
 router.delete("/:id", deleteExperience);

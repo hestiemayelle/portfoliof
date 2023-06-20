@@ -13,7 +13,7 @@ router.get("/:id", getSingleTestimonial);
 router.patch("/:id", updateTestimonial);
 
 // Create a new Testimonial 
-router.post("/:id", createTestimonial);
+router.post("/", createTestimonial);
 
 // delete a Testimonial 
 router.delete("/:id", deleteTestimonial);

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { BsPatchCheckFill } from "react-icons/bs";
 import axios from "axios";
+import client from "../../../api/axios";
 
 const ListExperiences = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(
+    client.get(
       "https://hestie-portfolio-backend.onrender.com/experiences"
     ).then((response)=>{
       setData(response.data);

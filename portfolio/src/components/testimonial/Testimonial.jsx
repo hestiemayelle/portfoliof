@@ -1,6 +1,6 @@
 import React from "react";
 import "./testimonials.css";
-import axios from "axios";
+import client from "../../api/axios";
 
 // import Swiper core and required modules
 import { Pagination, Navigation, Scrollbar, A11y } from 'swiper';
@@ -16,7 +16,7 @@ export const Testimonial = () => {
   const [testimonials, setTestimonials] = React.useState([]);
 
   React.useEffect(()=>{
-    axios.get(
+    client.get(
       "https://hestie-portfolio-backend.onrender.com/testimonials"
     ).then((response)=>{
       setTestimonials(response.data);
@@ -84,7 +84,7 @@ export const Testimonial = () => {
           return (
             <SwiperSlide key={testi._id} className="testimonial">
               <div className="client__avatar">
-                <img src={testi.clientImage} alt="client avatar" />
+                <img src={testi.clientProfile} alt="client avatar" />
               </div>
               <h5 className="client__name"> {testi.clientName} </h5>
               <small className="client__review"> {testi.testimonialMessage} </small>

@@ -13,7 +13,7 @@ router.get("/:id", getSingleService);
 router.patch("/:id", updateService);
 
 // Create a new Service 
-router.post("/:id", createService);
+router.post("/", createService);
 
 // delete a Service 
 router.delete("/:id", deleteService);

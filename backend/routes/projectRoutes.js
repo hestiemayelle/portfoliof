@@ -13,7 +13,7 @@ router.get("/:id", getSingleProject);
 router.patch("/:id", updateProject);
 
 // Create a new Project 
-router.post("/:id", createProject);
+router.post("/", createProject);
 
 // delete a Project 
 router.delete("/:id", deleteProject);

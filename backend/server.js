@@ -26,7 +26,10 @@ mongoose
 
 // Rest of your server code goes here...
 // Middleware
-app.use(cors());
+app.use(cors({
+  "origin" : "https://hestiemayelle-portfolio.vercel.app",
+  "methods" : ["GET", "POST", "PATCH", "DELETE"]
+}));
 app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
